@@ -1,0 +1,39 @@
+﻿<Page x:Class="MovieDatabase.UI.UpdateMoviePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="UpdateMoviePage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0">Title:</Label>
+        <TextBox Grid.Row="0" x:Name="Title" Text="{Binding SelectedMovie.Title}" Margin="20"/>
+        <Label Grid.Row="1">Genre:</Label>
+        <TextBox Grid.Row="1" x:Name="Genre" Text="{Binding SelectedMovie.Genre}" Margin="20"/>
+        <Label Grid.Row="2">Actors:</Label>
+        <TextBox Grid.Row="2" x:Name="Actors" Text="{Binding SelectedMovie.Actors}" Margin="20"/>
+
+        <Label Grid.Row="3">Status:</Label>
+        <ComboBox Grid.Row="3" x:Name="Status" Text="{Binding SelectedMovie.Status}" Height = "20" Width = "110" HorizontalAlignment = "Left" Margin = "30">
+            <ComboBoxItem Content = "delayed"/>
+            <ComboBoxItem Content = "cancelled"/>
+            <ComboBoxItem Content = "released"/>
+            <ComboBoxItem IsSelected="True" Content = "to be released"/>
+        </ComboBox>
+        
+        <Button Grid.Row="4" Click="UpdateMovie" Margin="20" Width="250">Update Movie</Button>
+    </Grid>
+</Page>

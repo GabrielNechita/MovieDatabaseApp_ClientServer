@@ -1,0 +1,53 @@
+﻿<Page x:Class="MovieDatabase.UI.AdminWorkspace"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdminWorkspace">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="4*" />
+            <RowDefinition Height="4*" />
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0">Admin</Label>
+        <Label Grid.Row="1" Grid.Column="0">Movies:</Label>
+        <Label Grid.Row="1" Grid.Column="1">Users:</Label>
+
+        <ListBox Grid.Row="2" Grid.Column="0" x:Name="MoviesListBox" ItemsSource="{Binding Movies}" SelectedItem="{Binding SelectedMovie}">
+        </ListBox>
+        <ListBox Grid.Row="2" Grid.Column="1" x:Name="UsersListBox" ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser}">
+        </ListBox>
+        
+        <StackPanel Grid.Column="0" Grid.Row="3">
+            <Button  Margin="5" Width="200" Click="AddMovie_Click">Add Movie</Button>
+            <Button  Margin="5" Width="200" Click="UpdateMovie_Click">Update Movie</Button>
+            <Button  Margin="5" Width="200" Click="DeleteMovie_Click">Delete Movie</Button>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="3">
+            <Button  Margin="5" Width="200" Click="AddUser_Click">Add User</Button>
+            <Button  Margin="5" Width="200" Click="UpdateUser_Click">Update User</Button>
+            <Button  Margin="5" Width="200" Click="DeleteUser_Click">Delete User</Button>
+        </StackPanel>
+
+        <ComboBox Grid.Row="4" Grid.Column="0" x:Name="ReportType" Height = "20" Width = "100" HorizontalAlignment = "Left"  Margin = "30">
+            <ComboBoxItem IsSelected="True" Content = "PDF"/>
+            <ComboBoxItem Content = "TXT"/>
+        </ComboBox>
+
+        <Button Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" Click="Report_Click" Margin="45">Generate Report</Button>
+        
+
+    </Grid>
+</Page>
